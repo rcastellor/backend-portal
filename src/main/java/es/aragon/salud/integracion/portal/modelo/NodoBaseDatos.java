@@ -2,32 +2,48 @@ package es.aragon.salud.integracion.portal.modelo;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="nodos")
-public class Nodo implements Serializable {
+@Table(name="nodos_basedatos")
+public class NodoBaseDatos implements Serializable {
 
 	private static final long serialVersionUID = 5814165269925113817L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(insertable=false, updatable=false, nullable=false)
 	private Integer id;
 	
-	@OneToOne
+	@ManyToOne()
+	@JoinColumn(name = "sector_id")
 	private Sector sector;
 	
+	@ManyToOne()
+	@JoinColumn(name = "tipo_db_id")
+	private BaseDatos baseDatos;
+	
+	public BaseDatos getBaseDatos() {
+		return baseDatos;
+	}
+	public void setBaseDatos(BaseDatos baseDatos) {
+		this.baseDatos = baseDatos;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 	private String nombre;
 	private String host;
-	private String variableGlobal;
 	
 	public Integer getId() {
 		return id;
@@ -53,11 +69,4 @@ public class Nodo implements Serializable {
 	public void setHost(String host) {
 		this.host = host;
 	}
-	public String getVariableGlobal() {
-		return variableGlobal;
-	}
-	public void setVariableGlobal(String variableGlobal) {
-		this.variableGlobal = variableGlobal;
-	}
-	
 }

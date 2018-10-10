@@ -14,7 +14,7 @@ INSERT INTO `sectores` (id, nodo_activo, nombre, codigo, ipvirtual) VALUES (1,1,
 								(14,26,'CSAR','CSAR','172.25.0.142');
 								
 								
-INSERT INTO `nodos` (id, sector_id, host, nombre, variable_global ) VALUES (1,1,'psisitd006','psisitd006.salud.psis','DESARROLLO ITD006'),
+INSERT INTO `nodos_rhapsody` (id, sector_id, host, nombre, variable_global ) VALUES (1,1,'psisitd006','psisitd006.salud.psis','DESARROLLO ITD006'),
 								(2,2,'psisitp100','psisitp100.salud.psis','PROTOTIPO ITP100'),
 								(3,2,'psisitp101','psisitp101.salud.psis','PROTOTIPO ITP101'),
 								(4,3,'psisitd007','psisitd007.salud.psis','DESARROLLO ITD007'),
@@ -46,3 +46,4 @@ INSERT INTO `nodos` (id, sector_id, host, nombre, variable_global ) VALUES (1,1,
 								(30,12,'mov-rhapsody-801','mov-rhapsody-801.salud.psis','HUESCA 801'),
 								(31,7,'mov-rhapsody-301','mov-rhapsody-301.salud.psis','BARBASTRO 301'),
 								(32,9,'mov-rhapsody-501','mov-rhapsody-501.salud.psis','Teruel 501');
+								
